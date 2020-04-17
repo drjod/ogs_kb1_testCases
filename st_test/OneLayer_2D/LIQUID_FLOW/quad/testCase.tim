@@ -1,0 +1,58 @@
+#TIME_STEPPING
+ $PCS_TYPE
+  LIQUID_FLOW
+ $TIME_STEPS
+  48   3600
+ $TIME_END
+  1e10
+ $TIME_START
+  0.0
+#STOP
+
+
+
+
+
+
+
+
+
+
+#STOP
+#TIME_STEPPING
+ $PCS_TYPE
+  LIQUID_FLOW  
+ $TIME_END
+  328406400
+ $TIME_CONTROL
+  SELF_ADAPTIVE
+  4 1.3 ; multiply time step sitze by 1.3 if number of iterations <= 4 (if condition satisfied, this is selected, the following ignored)
+  7 1.0 ; multiply time step sitze by 1. if number of iterations <= 7
+  9 0.7 ; else multiply time step sitze by 0.7 ( the 10 in last line does nothing, can give more than three lines)
+  MAX_TIME_STEP
+  864000
+  MIN_TIME_STEP
+  3600
+  INITIAL_STEP_SIZE
+  3600
+  ITERATIVE_TYPE
+  COUPLED ; for outer coupling loop (take keyword LINEAR for solver, NONLINEAR for Picard)  
+#TIME_STEPPING
+ $PCS_TYPE
+  HEAT_TRANSPORT  
+ $TIME_END
+  328406400
+ $TIME_CONTROL
+  SELF_ADAPTIVE
+  4 1.3 ; multiply time step sitze by 1.3 if number of iterations <= 4 (if condition satisfied, this is selected, the following ignored)
+  7 1.0 ; multiply time step sitze by 1. if number of iterations <= 7
+  9 0.7 ; else multiply time step sitze by 0.7 ( the 10 in last line does nothing, can give more than three lines)
+  MAX_TIME_STEP
+  864000
+  MIN_TIME_STEP
+  3600
+  INITIAL_STEP_SIZE
+  3600
+  ITERATIVE_TYPE
+  COUPLED ; for outer coupling loop (take keyword LINEAR for solver, NONLINEAR for Picard)  
+#STOP

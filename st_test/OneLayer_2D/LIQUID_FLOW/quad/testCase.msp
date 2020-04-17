@@ -1,0 +1,55 @@
+#SOLID_PROPERTIES ; Materialgruppe 1 (Aquifer 1[Speicherhorizont])
+ $DENSITY
+   1 2517.36
+ $THERMAL
+  EXPANSION
+   1 0
+  CAPACITY
+   1 744.12
+  CONDUCTIVITY
+   1 3.09
+   
+#SOLID_PROPERTIES ; Materialgruppe 1 (Aquifer 1[Speicherhorizont])
+ $DENSITY
+   1 2517.36
+ $THERMAL
+  EXPANSION
+   1 0
+  CAPACITY
+   1 744.12
+  CONDUCTIVITY
+   1 3.09
+   
+#SOLID_PROPERTIES ; Materialgruppe 1 (Aquifer 1[Speicherhorizont])
+ $DENSITY
+   1 2517.36
+ $THERMAL
+  EXPANSION
+   1 0
+  CAPACITY
+   1 744.12
+  CONDUCTIVITY
+   1 3.09
+   
+#SOLID_PROPERTIES ; Materialgruppe 1 (Aquifer 1[Speicherhorizont])
+ $DENSITY
+   1 2517.36
+ $THERMAL
+  EXPANSION
+   1 0
+  CAPACITY
+   1 744.12
+  CONDUCTIVITY
+   1 3.09
+
+#SOLID_PROPERTIES ; Materialgruppe 1 (Aquifer 1[Speicherhorizont])
+ $DENSITY
+   1 2517.36
+ $THERMAL
+  EXPANSION
+   1 0
+  CAPACITY
+   1 744.12
+  CONDUCTIVITY
+   1 3.09
+#STOP
