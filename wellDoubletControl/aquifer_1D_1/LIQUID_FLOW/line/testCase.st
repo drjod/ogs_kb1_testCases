@@ -30,11 +30,10 @@
  $DIS_TYPE
   CONSTANT 1.  ; 5e5
  $WELL_DOUBLET_PARAMETER
-  4
-  0     1 3.e4 100. 0.01
-  864000 1 3.e4 100. 0.01
-  1728000 1 1.e5 100. 0.01
-  1.e10 1 1.e5 100. 2.e-4
+  HP 0 ; No heat pump
+  2
+  0     1 3.e6 100. 0.01
+  1.e10 1 3.e6 100. 0.01
 
 #STOP
 
@@ -53,6 +52,7 @@
  $DIS_TYPE
   CONSTANT 1.  ; 5e5
  $WELL_DOUBLET_PARAMETER
+  HP 0 ; No heat pump
   2
   0     0 5.e5 1.e-2 100.
   1.e10 0 5.e5 1.e-2 100.

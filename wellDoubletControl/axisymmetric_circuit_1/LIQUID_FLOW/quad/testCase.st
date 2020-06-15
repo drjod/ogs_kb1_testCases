@@ -15,13 +15,14 @@
  $DIS_TYPE
   CONSTANT 1
  $WELL_DOUBLET_PARAMETER
+  HP 0 ; No heat pump
   6 1 0.1 10 1e-5 ; number_of_entries well_shutdown_temperature_range accuracy_temperature accuracy_powerrate accuracy_flowrate
 1728000		1	2e6	70	0.01  ; time mode power_target target extremum - until 1728000 (including) - 20 days
 2590000 	1       5e6   	70 	0.01 ; after 1728000 until 2590000 (30 days)
 3456000		1	1e3	70	0.01 ; after 2590000 until 3456000 (40 days)
-4320000		1	-1e6	13	-0.01 ; after 2590000 until 3456000 (40 days)
-5184000		1	-5e6	13	-0.01 ; after 3456000
-1e20		1	-1e2	13	-0.01 ; after 3456000
+4320000		1	-1e6	13	-0.01 ; after 3456000 until 4320000 (50 days)
+5184000		1	-5e6	13	-0.01 ; after 4320000 until 5184000 (60 days)
+1e20		1	-1e2	13	-0.01 ; after 5184000
 
 #STOP
 

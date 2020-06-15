@@ -31,6 +31,7 @@
  $DIS_TYPE
   CONSTANT 1.  ; 5e5
  $WELL_DOUBLET_PARAMETER
+  HP 0 ; No heat pump
   2
   0     0 5.e5 1.e-2 100.
   1.e10 0 5.e5 1.e-2 100.
