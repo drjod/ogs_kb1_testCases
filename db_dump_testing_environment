@@ -902,6 +902,7 @@ COPY public.branches (id, name) FROM stdin;
 4	ogs_kb1-0.1
 5	ogs_kb1_2
 3	ogs_kb1-0.2.4
+6	ogs_kb1-0.2.5
 \.
 
 
@@ -990,7 +991,6 @@ COPY public.cases (id, name, mass_flag, heat_flag, coupled_flag, deformation_fla
 31	1D_flow_only_LPVC	f	f	f	f	f	f	t
 37	2D_flow_only_LPVC	f	f	f	f	f	f	t
 38	2D_flow_only_REFERENCE	f	f	f	f	f	f	t
-42	2D_heat_diffusive_REFERENCE	t	t	f	f	f	f	t
 43	pole_advective	t	t	f	f	f	f	t
 44	pole_diffusive	t	t	f	f	f	f	t
 20	2_2_1	t	t	f	f	f	f	t
@@ -1000,15 +1000,21 @@ COPY public.cases (id, name, mass_flag, heat_flag, coupled_flag, deformation_fla
 90	aquifer_1D_0	f	t	t	f	f	f	t
 91	aquifer_1D_1	f	t	t	f	f	f	t
 98	eskilson	f	t	t	f	f	f	t
-92	aquifer_cylindric_1	f	t	t	f	f	f	f
+103	polylineWell_0	f	t	t	f	f	f	t
 94	axisymmetric_circuit_0	f	t	t	f	f	f	t
+104	polylineWell_1	f	t	t	f	f	f	t
 95	axisymmetric_circuit_1	f	t	t	f	f	f	t
 96	axisymmetric_circuit_2	f	t	t	f	f	f	t
 97	pipe	f	t	f	f	f	f	t
 99	discretized	f	t	f	f	f	f	t
 100	OneLayer_2D	f	t	t	f	f	f	t
+105	polylineWell_2	f	t	t	f	f	f	t
 101	connected_BC	t	t	t	f	f	f	t
+106	polylineWell_carnot_0	f	t	t	f	f	f	t
 102	eskilson_DT	f	t	t	f	f	f	t
+107	polylineWell_carnot_1	f	t	t	f	f	f	t
+108	polylineWell_carnot_2	f	t	t	f	f	f	t
+42	2D_heat_diffusive_REFERENCE	f	t	f	f	f	f	t
 \.
 
 
@@ -1164,7 +1170,6 @@ COPY public.examples (id, type_id, case_id) FROM stdin;
 86	17	86
 90	19	90
 91	19	91
-92	19	92
 93	10	93
 94	19	94
 95	19	95
@@ -1175,6 +1180,12 @@ COPY public.examples (id, type_id, case_id) FROM stdin;
 100	20	100
 101	10	101
 102	21	102
+103	19	103
+104	19	104
+105	19	105
+107	19	107
+108	19	108
+106	19	106
 \.
 
 
@@ -1236,7 +1247,6 @@ COPY public.modi (id, computer_id, configuration_id) FROM stdin;
 COPY public.numerics (id, theta_flow, theta_mass, theta_heat, solver_flow_ogs_fem, solver_flow_ogs_fem_sp, solver_flow_ogs_fem_mkl, solver_flow_ogs_fem_mpi, solver_flow_ogs_fem_petsc, solver_mass_ogs_fem, solver_mass_ogs_fem_sp, solver_mass_ogs_fem_mkl, solver_mass_ogs_fem_mpi, solver_mass_ogs_fem_petsc, solver_heat_ogs_fem, solver_heat_ogs_fem_sp, solver_heat_ogs_fem_mkl, solver_heat_ogs_fem_mpi, solver_heat_ogs_fem_petsc, preconditioner_flow_ogs_fem, preconditioner_flow_ogs_fem_sp, preconditioner_flow_ogs_fem_mkl, preconditioner_flow_ogs_fem_mpi, preconditioner_flow_ogs_fem_petsc, preconditioner_mass_ogs_fem, preconditioner_mass_ogs_fem_sp, preconditioner_mass_ogs_fem_mkl, preconditioner_mass_ogs_fem_mpi, preconditioner_mass_ogs_fem_petsc, preconditioner_heat_ogs_fem, preconditioner_heat_ogs_fem_sp, preconditioner_heat_ogs_fem_mkl, preconditioner_heat_ogs_fem_mpi, preconditioner_heat_ogs_fem_petsc, flow_lumping_flag, solver_deformation_ogs_fem, solver_deformation_ogs_fem_sp, solver_deformation_ogs_fem_mkl, solver_deformation_ogs_fem_mpi, solver_deformation_ogs_fem_petsc, preconditioner_deformation_ogs_fem, preconditioner_deformation_ogs_fem_sp, preconditioner_deformation_ogs_fem_mkl, preconditioner_deformation_ogs_fem_mpi, preconditioner_deformation_ogs_fem_petsc, solver_fluid_momentum_ogs_fem, solver_fluid_momentum_ogs_fem_sp, solver_fluid_momentum_ogs_fem_mkl, solver_fluid_momentum_ogs_fem_mpi, solver_fluid_momentum_ogs_fem_petsc, preconditioner_fluid_momentum_ogs_fem, preconditioner_fluid_momentum_ogs_fem_sp, preconditioner_fluid_momentum_ogs_fem_mkl, preconditioner_fluid_momentum_ogs_fem_mpi, preconditioner_fluid_momentum_ogs_fem_petsc, solver_overland_ogs_fem, solver_overland_ogs_fem_sp, solver_overland_ogs_fem_mkl, solver_overland_ogs_fem_mpi, solver_overland_ogs_fem_petsc, preconditioner_overland_ogs_fem, preconditioner_overland_ogs_fem_sp, preconditioner_overland_ogs_fem_mkl, preconditioner_overland_ogs_fem_mpi, preconditioner_overland_ogs_fem_petsc, case_id, flow_process_id, element_type_id, fct_heat, fct_mass) FROM stdin;
 167	1	1	1	2	2	0	2	0	2	2	0	2	0	2	2	0	2	0	1	0	0	0	1	1	0	0	0	1	1	0	0	0	1	t	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	83	1	1	f	f
 91	1	1	1	2	2	0	2	0	2	2	0	2	0	2	2	0	2	0	1	0	0	0	1	1	0	0	0	1	1	0	0	0	1	t	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	35	1	1	f	f
-180	1	\N	1	2	2	0	2	0	\N	\N	\N	\N	\N	2	2	0	2	0	0	0	0	0	1	\N	\N	\N	\N	\N	0	0	0	0	1	t	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	92	1	14	t	f
 181	1	\N	1	2	2	0	2	0	\N	\N	\N	\N	\N	2	2	0	2	0	0	0	0	0	1	\N	\N	\N	\N	\N	0	0	0	0	1	t	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	93	1	2	f	f
 168	1	1	1	2	2	0	2	0	2	2	0	2	0	2	2	0	2	0	1	0	0	0	1	1	0	0	0	1	1	0	0	0	1	t	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	84	1	1	f	f
 54	1	1	1	2	2	0	2	0	2	2	0	2	0	2	2	0	2	0	1	0	0	0	3	1	0	0	0	3	1	0	0	0	3	t	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	16	1	4	f	f
@@ -1383,15 +1393,21 @@ COPY public.numerics (id, theta_flow, theta_mass, theta_heat, solver_flow_ogs_fe
 105	1	1	1	2	2	0	2	0	2	2	0	2	0	2	2	0	2	0	1	0	0	0	1	1	0	0	0	1	0	0	0	0	1	t	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	46	1	6	f	f
 178	1	\N	1	2	2	0	2	0	\N	\N	\N	\N	\N	2	2	0	2	0	1	0	0	0	1	\N	\N	\N	\N	\N	1	1	0	0	1	t	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	90	1	1	f	f
 183	1	\N	1	2	2	0	2	0	\N	\N	\N	\N	\N	2	2	0	2	0	1	1	0	1	1	\N	\N	\N	\N	\N	1	1	0	1	1	t	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	95	1	2	f	f
-188	1	\N	1	2	2	0	2	0	\N	\N	\N	\N	\N	2	2	0	2	0	1	1	0	1	1	\N	\N	\N	\N	\N	1	1	0	1	1	t	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	100	1	2	f	\N
-190	1	\N	1	2	2	0	2	0	\N	\N	\N	\N	\N	2	2	0	2	1	1	1	0	1	1	\N	\N	\N	\N	\N	1	1	0	1	1	t	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	102	1	6	f	\N
-186	1	\N	1	2	2	0	2	0	\N	\N	\N	\N	\N	2	2	0	2	0	1	1	0	1	1	\N	\N	\N	\N	\N	1	1	0	1	1	t	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	98	1	6	f	\N
+196	1	\N	1	2	2	0	2	0	\N	\N	\N	\N	\N	2	2	0	2	0	1	1	0	1	1	\N	\N	\N	\N	\N	1	1	0	1	1	t	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	108	1	2	f	f
+195	1	\N	1	2	2	0	2	0	\N	\N	\N	\N	\N	2	2	0	2	0	1	1	0	1	1	\N	\N	\N	\N	\N	1	1	0	1	1	t	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	107	1	2	f	f
+194	1	\N	1	2	2	0	2	0	\N	\N	\N	\N	\N	2	2	0	2	0	1	1	0	1	1	\N	\N	\N	\N	\N	1	1	0	1	1	t	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	106	1	2	f	f
+193	1	\N	1	2	2	0	2	0	\N	\N	\N	\N	\N	2	2	0	2	0	1	1	0	1	1	\N	\N	\N	\N	\N	1	1	0	1	1	t	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	105	1	2	f	f
+192	1	\N	1	2	2	0	2	0	\N	\N	\N	\N	\N	2	2	0	2	0	1	1	0	1	1	\N	\N	\N	\N	\N	1	1	0	1	1	t	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	104	1	2	f	f
 189	1	1	1	2	2	0	2	0	2	2	0	2	0	2	2	0	2	0	1	1	0	1	1	1	1	0	1	1	1	1	0	1	1	t	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	101	1	4	f	f
-184	1	\N	1	2	2	0	2	0	\N	\N	\N	\N	\N	2	2	0	2	0	1	1	0	1	1	\N	\N	\N	\N	\N	1	1	0	1	1	t	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	96	1	2	f	\N
+191	1	\N	1	2	2	0	2	0	\N	\N	\N	\N	\N	2	2	0	2	0	1	1	0	1	1	\N	\N	\N	\N	\N	1	1	0	1	1	t	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	103	1	2	f	f
 107	1	1	1	2	2	0	2	0	2	2	0	2	0	2	2	0	2	0	1	1	0	0	1	1	0	0	0	1	1	0	0	0	1	t	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	47	5	2	f	f
-185	1	\N	1	2	2	0	2	0	\N	\N	\N	\N	\N	2	2	0	2	0	1	1	0	1	0	\N	\N	\N	\N	\N	1	1	0	1	0	t	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	97	1	4	f	\N
 182	1	\N	1	2	2	0	2	0	\N	\N	\N	\N	\N	2	2	0	2	0	1	1	0	1	1	\N	\N	\N	\N	\N	1	1	0	1	1	t	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	94	1	2	f	f
-187	1	\N	1	2	2	0	2	0	\N	\N	\N	\N	\N	2	2	0	2	0	1	1	0	1	1	\N	\N	\N	\N	\N	1	1	0	1	1	t	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	99	1	6	f	\N
+184	1	\N	1	2	2	0	2	0	\N	\N	\N	\N	\N	2	2	0	2	0	1	1	0	1	1	\N	\N	\N	\N	\N	1	1	0	1	1	t	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	96	1	2	f	f
+185	1	\N	1	2	2	0	2	0	\N	\N	\N	\N	\N	2	2	0	2	0	1	1	0	1	0	\N	\N	\N	\N	\N	1	1	0	1	0	t	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	97	1	4	f	f
+186	1	\N	1	2	2	0	2	0	\N	\N	\N	\N	\N	2	2	0	2	0	1	1	0	1	1	\N	\N	\N	\N	\N	1	1	0	1	1	t	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	98	1	6	f	f
+187	1	\N	1	2	2	0	2	0	\N	\N	\N	\N	\N	2	2	0	2	0	1	1	0	1	1	\N	\N	\N	\N	\N	1	1	0	1	1	t	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	99	1	6	f	f
+188	1	\N	1	2	2	0	2	0	\N	\N	\N	\N	\N	2	2	0	2	0	1	1	0	1	1	\N	\N	\N	\N	\N	1	1	0	1	1	t	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	100	1	2	f	f
+190	1	\N	1	2	2	0	2	0	\N	\N	\N	\N	\N	2	2	0	2	1	1	1	0	1	1	\N	\N	\N	\N	\N	1	1	0	1	1	t	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	102	1	6	f	f
 \.
 
 
