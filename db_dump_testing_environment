@@ -2,8 +2,8 @@
 -- PostgreSQL database dump
 --
 
--- Dumped from database version 10.12 (Ubuntu 10.12-0ubuntu0.18.04.1)
--- Dumped by pg_dump version 10.12 (Ubuntu 10.12-0ubuntu0.18.04.1)
+-- Dumped from database version 10.17 (Ubuntu 10.17-0ubuntu0.18.04.1)
+-- Dumped by pg_dump version 10.17 (Ubuntu 10.17-0ubuntu0.18.04.1)
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -1000,12 +1000,14 @@ COPY public.cases (id, name, mass_flag, heat_flag, coupled_flag, deformation_fla
 90	aquifer_1D_0	f	t	t	f	f	f	t
 91	aquifer_1D_1	f	t	t	f	f	f	t
 98	eskilson	f	t	t	f	f	f	t
+110	wells	f	t	f	f	f	f	t
 103	polylineWell_0	f	t	t	f	f	f	t
 94	axisymmetric_circuit_0	f	t	t	f	f	f	t
 104	polylineWell_1	f	t	t	f	f	f	t
 95	axisymmetric_circuit_1	f	t	t	f	f	f	t
 96	axisymmetric_circuit_2	f	t	t	f	f	f	t
 97	pipe	f	t	f	f	f	f	t
+109	polylineWell_3	f	t	t	f	f	f	t
 99	discretized	f	t	f	f	f	f	t
 100	OneLayer_2D	f	t	t	f	f	f	t
 105	polylineWell_2	f	t	t	f	f	f	t
@@ -1186,6 +1188,8 @@ COPY public.examples (id, type_id, case_id) FROM stdin;
 107	19	107
 108	19	108
 106	19	106
+109	19	109
+110	7	110
 \.
 
 
@@ -1402,6 +1406,8 @@ COPY public.numerics (id, theta_flow, theta_mass, theta_heat, solver_flow_ogs_fe
 191	1	\N	1	2	2	0	2	0	\N	\N	\N	\N	\N	2	2	0	2	0	1	1	0	1	1	\N	\N	\N	\N	\N	1	1	0	1	1	t	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	103	1	2	f	f
 107	1	1	1	2	2	0	2	0	2	2	0	2	0	2	2	0	2	0	1	1	0	0	1	1	0	0	0	1	1	0	0	0	1	t	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	47	5	2	f	f
 182	1	\N	1	2	2	0	2	0	\N	\N	\N	\N	\N	2	2	0	2	0	1	1	0	1	1	\N	\N	\N	\N	\N	1	1	0	1	1	t	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	94	1	2	f	f
+198	1	\N	1	2	2	0	2	0	\N	\N	\N	\N	\N	2	2	0	2	0	1	1	0	1	1	\N	\N	\N	\N	\N	1	1	0	1	1	t	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	110	1	2	f	f
+197	1	\N	1	2	2	0	2	0	\N	\N	\N	\N	\N	2	2	0	2	0	1	1	0	1	1	\N	\N	\N	\N	\N	1	1	0	1	1	t	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	109	1	2	f	f
 184	1	\N	1	2	2	0	2	0	\N	\N	\N	\N	\N	2	2	0	2	0	1	1	0	1	1	\N	\N	\N	\N	\N	1	1	0	1	1	t	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	96	1	2	f	f
 185	1	\N	1	2	2	0	2	0	\N	\N	\N	\N	\N	2	2	0	2	0	1	1	0	1	0	\N	\N	\N	\N	\N	1	1	0	1	0	t	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	97	1	4	f	f
 186	1	\N	1	2	2	0	2	0	\N	\N	\N	\N	\N	2	2	0	2	0	1	1	0	1	1	\N	\N	\N	\N	\N	1	1	0	1	1	t	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	98	1	6	f	f
@@ -1605,7 +1611,7 @@ SELECT pg_catalog.setval('public.modi_id_seq', 1, false);
 -- Name: numerics_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.numerics_id_seq', 11, true);
+SELECT pg_catalog.setval('public.numerics_id_seq', 12, true);
 
 
 --
